@@ -13,6 +13,11 @@ const imagenesDonantes = [
   'https://randomuser.me/api/portraits/women/3.jpg',
 ];
 
+function getRandomDonorImage() {
+  const randomIndex = Math.floor(Math.random() * imagenesDonantes.length);
+  return imagenesDonantes[randomIndex];
+}
+
 // Define the type for a donation
 interface Donacion {
   id: string;
@@ -55,7 +60,11 @@ function Home() {
         <p className="subtitle">Ayudemos a nuestro compañero gomito</p>
         <p className="community">De la comunidad Alta Fruta</p> {/* Added here */}
       </header>
-
+      <section className="server-info">
+          <h3>Servidor Alta Fruta</h3>
+          <p><strong>Dirección IP:</strong> 45.235.98.120:27025</p>
+         
+        </section>
       <main className="main-content">
         <section className="goal">
           <h2>Objetivo: $50.000 ARS</h2>
