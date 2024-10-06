@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../../public/css/Home.css';
+import '../assets/css/Home.css';
 import ButtonDona from '../component/ButtonDona';
 import { useGetDonacionesQuery } from '../service/ecApi';
 
-// Array de imágenes de ejemplo
+// Array of sample donor images
 const imagenesDonantes = [
   'https://randomuser.me/api/portraits/men/1.jpg',
   'https://randomuser.me/api/portraits/women/1.jpg',
@@ -13,10 +13,18 @@ const imagenesDonantes = [
   'https://randomuser.me/api/portraits/women/3.jpg',
 ];
 
+// Define the type for a donation
+interface Donacion {
+  id: string;
+  nombre: string;
+  cantidad: string; // Adjust the type if needed (e.g., number)
+}
+
 function Home() {
+  // Fetch donations with hooks
   const { data: donaciones = [], error, isLoading } = useGetDonacionesQuery();
   const [totalRecaudado, setTotalRecaudado] = useState(0);
-  const LIMITE_RECAUDADO = 50000; // Límite de 50,000 ARS
+  const LIMITE_RECAUDADO = 50000; // Limit of 50,000 ARS
 
   useEffect(() => {
     if (donaciones.length > 0) {
@@ -24,13 +32,14 @@ function Home() {
     }
   }, [donaciones]);
 
-  const calcularTotalRecaudado = (donaciones) => {
+  // Calculate the total amount raised
+  const calcularTotalRecaudado = (donaciones: Donacion[]) => {
     let total = 0;
     for (let donacion of donaciones) {
       total += parseFloat(donacion.cantidad);
       if (total >= LIMITE_RECAUDADO) {
         total = LIMITE_RECAUDADO;
-        break; // Detener la suma cuando llegue al límite
+        break; // Stop the sum when reaching the limit
       }
     }
     setTotalRecaudado(total);
@@ -44,7 +53,7 @@ function Home() {
       <header className="header">
         <h1>¡Baquita para Micrófono!</h1>
         <p className="subtitle">Ayudemos a nuestro compañero gomito</p>
-        <p className="community">De la comunidad Alta Fruta</p> {/* Agregado aquí */}
+        <p className="community">De la comunidad Alta Fruta</p> {/* Added here */}
       </header>
 
       <main className="main-content">
@@ -79,7 +88,7 @@ function Home() {
         <section className="donantes">
           <h3>Donantes:</h3>
           <div className="donantes-container">
-            {donaciones.map((donacion, index) => {
+            {donaciones.map((donacion: Donacion, index: number) => {
               const imagenAleatoria = imagenesDonantes[index % imagenesDonantes.length];
               return (
                 <div className="donante-badge" key={donacion.id}>
