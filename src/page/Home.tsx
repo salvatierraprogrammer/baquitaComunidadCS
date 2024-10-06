@@ -56,8 +56,8 @@ function Home() {
   return (
     <div className="home-container">
       <header className="header">
-        <h1>¡Baquita para Micrófono!</h1>
-        <p className="subtitle">Ayudemos a nuestro compañero gomito</p>
+        <h1>¡Baquita para gomito!</h1>
+        <p className="subtitle">Ayudemos a nuestro compañero</p>
         <p className="community">De la comunidad Alta Fruta</p> {/* Added here */}
       </header>
       <section className="server-info">
