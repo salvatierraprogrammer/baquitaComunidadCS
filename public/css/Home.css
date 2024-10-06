@@ -1,0 +1,129 @@
+/* Home.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://steamuserimages-a.akamaihd.net/ugc/1653347126887101751/B4E5D88FEEB55C93C37F812B731FF49CF1AAECE0/?imw=1024&imh=768&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true') no-repeat center center fixed;
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  }
+  
+  .home-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco con un poco de transparencia */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin: 0;
+  }
+  
+  .subtitle {
+    color: #3498db;
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+  
+  .main-content {
+    margin-bottom: 20px;
+  }
+  
+  .goal {
+    background: #dbbd8c;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    border: 1px solid #76c7c0;
+  }
+  
+  .progress {
+    background: #ddd;
+    border-radius: 5px;
+    height: 20px;
+    margin: 10px 0;
+  }
+  
+  .progress-bar {
+    background: #76c7c0;
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .description {
+    margin: 20px 0;
+    padding: 15px;
+    background: #c29b5c;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .donate {
+    margin: 20px 0;
+  }
+  
+  .donate-button {
+    padding: 12px 30px;
+    font-size: 18px;
+    color: rgb(218, 177, 134);
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .donate-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+  }
+  .product-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0; /* Espaciado superior e inferior */
+}
+.donantes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar los badges */
+    margin-top: 10px;
+  }
+  
+  .donante-badge {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    padding: 2px;
+    background-color: rgba(232, 98, 98, 0.9);
+    border-radius: 20px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-circle {
+    width: 40px; /* Tamaño del círculo */
+    height: 40px; /* Tamaño del círculo */
+    border-radius: 50%; /* Hace que sea un círculo */
+    overflow: hidden; /* Oculta la parte de la imagen fuera del círculo */
+    margin-right: 8px; /* Espacio entre la imagen y el nombre */
+  }
+  
+  .image-circle img {
+    width: 100%; /* Ajusta la imagen al contenedor */
+    height: 100%; /* Ajusta la imagen al contenedor */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+  }

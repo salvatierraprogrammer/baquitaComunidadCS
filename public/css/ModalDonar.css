@@ -1,0 +1,64 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+  }
+  
+  .modal-content {
+    background: rgb(164, 147, 147);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Mejora la sombra para un efecto más profundo */
+    width: 400px; /* Ancho del modal */
+    max-width: 90%; /* Para que el modal sea responsivo */
+    transition: all 0.3s ease; /* Agrega una transición suave */
+  }
+  
+  .modal-content h2 {
+    margin: 0 0 10px;
+  }
+  
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal-content input {
+    margin-bottom: 15px; /* Espaciado inferior para mayor claridad */
+    padding: 10px; /* Espaciado interno para mejorar la experiencia de usuario */
+    border: 1px solid #ccc; /* Añadir borde para los campos de entrada */
+    border-radius: 4px; /* Bordes redondeados para los campos de entrada */
+  }
+  
+  .modal-content input:focus {
+    border-color: #76c7c0; /* Cambia el color del borde al enfocar */
+    outline: none; /* Elimina el contorno predeterminado */
+  }
+  
+  .error-message {
+    color: red; /* Color del mensaje de error */
+    font-size: 0.9em; /* Tamaño del texto del mensaje de error */
+    margin-top: -5px; /* Espaciado negativo para que se vea más integrado */
+  }
+  
+  button {
+    background-color: #76c7c0; /* Color del botón */
+    color: rgb(207, 138, 47); /* Color del texto del botón */
+    padding: 10px; /* Espaciado interno del botón */
+    border: none; /* Sin borde predeterminado */
+    border-radius: 4px; /* Bordes redondeados para el botón */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave para el fondo del botón */
+    margin-top: 10px; /* Separación entre los botones */
+  }
+  
+  button:hover {
+    background-color: #68b2a6; /* Color más oscuro al pasar el mouse */
+  }
