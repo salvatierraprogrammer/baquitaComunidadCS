@@ -2,20 +2,13 @@ import React, { useState, useEffect } from 'react';
 import '../assets/css/Home.css';
 import ButtonDona from '../component/ButtonDona';
 import { useGetDonacionesQuery } from '../service/ecApi';
+import Loading from '../component/Loading';
+import md5 from 'md5';
 
-// Array of sample donor images
-const imagenesDonantes = [
-  'https://randomuser.me/api/portraits/men/1.jpg',
-  'https://randomuser.me/api/portraits/women/1.jpg',
-  'https://randomuser.me/api/portraits/men/2.jpg',
-  'https://randomuser.me/api/portraits/women/2.jpg',
-  'https://randomuser.me/api/portraits/men/3.jpg',
-  'https://randomuser.me/api/portraits/women/3.jpg',
-];
-
-function getRandomDonorImage() {
-  const randomIndex = Math.floor(Math.random() * imagenesDonantes.length);
-  return imagenesDonantes[randomIndex];
+function getRandomGravatarImage() {
+  const randomString = Math.random().toString(36).substring(7); // Genera una cadena aleatoria
+  const hash = md5(randomString); // Genera el hash MD5 de la cadena
+  return `https://www.gravatar.com/avatar/${hash}?d=retro`; // Devuelve la URL con el hash
 }
 
 // Define the type for a donation
@@ -50,7 +43,7 @@ function Home() {
     setTotalRecaudado(total);
   };
 
-  if (isLoading) return <p>Cargando donaciones...</p>;
+  if (isLoading) return <Loading />;
   if (error) return <p>Error al cargar donaciones: {error.message}</p>;
 
   return (
@@ -61,10 +54,10 @@ function Home() {
         <p className="community">De la comunidad Alta Fruta</p> {/* Added here */}
       </header>
       <section className="server-info">
-          <h3>Servidor Alta Fruta</h3>
-          <p><strong>Dirección IP:</strong> 45.235.98.120:27025</p>
-         
-        </section>
+      
+        <h3>Comunidad Alta Fruta <a href="https://www.altafruta.net/" target="_blank" rel="noopener noreferrer">aquí</a></h3>
+        <p><strong>Servidor IP:</strong> 45.235.98.120:27025</p>
+      </section>
       <main className="main-content">
         <section className="goal">
           <h2>Objetivo: $50.000 ARS</h2>
@@ -97,8 +90,8 @@ function Home() {
         <section className="donantes">
           <h3>Donantes:</h3>
           <div className="donantes-container">
-            {donaciones.map((donacion: Donacion, index: number) => {
-              const imagenAleatoria = imagenesDonantes[index % imagenesDonantes.length];
+            {donaciones.map((donacion: Donacion) => {
+              const imagenAleatoria = getRandomGravatarImage(); // Usa la función para generar una imagen aleatoria
               return (
                 <div className="donante-badge" key={donacion.id}>
                   <div className="image-circle">
@@ -111,7 +104,11 @@ function Home() {
           </div>
         </section>
 
-        <ButtonDona />
+        {totalRecaudado < LIMITE_RECAUDADO ? (
+          <ButtonDona />
+        ) : (
+          <p>¡Lo logramos! Hemos llegado a nuestro objetivo.</p>
+        )}
       </main>
 
       <footer className="footer">
