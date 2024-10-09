@@ -44,7 +44,7 @@ function Home() {
   };
 
   if (isLoading) return <Loading />;
-  if (error) return <p>Error al cargar donaciones: {error.message}</p>;
+  if (error) return <p>Error al cargar donaciones revise su conexion: {error.message}</p>;
 
   return (
     <div className="home-container">
